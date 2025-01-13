@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 const Hero = () => {
 	const [currentIndex, setCurrentIndex] = useState(1)
 	const [hasClicked, setHasClicked] = useState(false)
-	const [isLoading, setIsLoading] = useState(false)
+	const [isLoading, setIsLoading] = useState(true)
 	const [loadedVideos, setLoadedVideos] = useState(0)
 
 	const totalVideos = 4
@@ -105,7 +105,7 @@ if(loadedVideos === totalVideos - 1){
 								muted
 								id='current-video'
 								className='size-64 origin-center scale-150 object-cover object-center'
-								onLoadedData
+								onLoadedData={handleVideoLoad}
 							/>
 						</div>
 					</div>
@@ -120,7 +120,7 @@ if(loadedVideos === totalVideos - 1){
 					/>
 					<video
 						src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
-						autoPlay
+						// autoPlay
 						loop
 						muted
 						className='absolute left-0 top-0 size-full object-cover object-center'
